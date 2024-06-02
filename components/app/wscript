@@ -1,0 +1,15 @@
+def options(opt):
+        print("app options!")
+
+def configure(cnf):
+        print("app configure!")
+
+def build(bld):
+        print("app build!")
+        bld(
+                features='c cxx cxxprogram',
+                source=["src/main.c"],
+                target="helloworld", 
+                use=["mcal"]
+        )
+        
