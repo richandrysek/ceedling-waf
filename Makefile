@@ -1,6 +1,14 @@
 
 CC=gcc
 CFLAGS=-I./src
+BUILD_DIR = build
 
-hellomake: src/led.c src/gpio.c src/main.c
-	$(CC) -o hellomake src/led.c src/gpio.c src/main.c $(CFLAGS)
+all: checkdirs $(BUILD_DIR)/hellomake
+
+checkdirs: $(BUILD_DIR)
+
+$(BUILD_DIR):
+	@mkdir -p $@
+
+$(BUILD_DIR)/hellomake: src/led.c src/gpio.c src/main.c
+	$(CC) -o $@ $^ $(CFLAGS)
