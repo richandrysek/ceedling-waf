@@ -29,7 +29,6 @@ def configure(cnf):
     dirs = find_waf_projects(rootpath = "components")
     #cnf.setenv('gcc_oo')
     cnf.load('compiler_c compiler_cxx')
-
     cnf.load('ceedling', tooldir=os.path.join('.', 'waf_tools'))
     cnf.recurse(dirs = dirs)
 
@@ -38,5 +37,4 @@ def build(bld):
     print("build!")
     dirs = find_waf_projects(rootpath = "components")
     bld.recurse(dirs = dirs)
-
     bld(features="ceedling")
