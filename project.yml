@@ -34,9 +34,10 @@
     - +:test/**
     - -:test/support
   :source:
-    - src/**
+    - components/app/src/**
   :include:
-    - src/**
+    - components/app/src/**
+    - components/mcal/src/**
   :support:
     - test/support
   :libraries: []
