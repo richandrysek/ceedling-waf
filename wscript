@@ -4,6 +4,10 @@
 # RENU Eletronics 2024 Copyright
 
 import os
+from waflib.Build import BuildContext
+
+
+WAF_TOOL_DIR = os.path.join('.', 'waf_tools')
 
 
 def find_waf_projects(rootpath = "."):
@@ -16,25 +20,31 @@ def find_waf_projects(rootpath = "."):
     return found_dirs
 
 
-def options(opt):
+def recurse(ctx):
     dirs = find_waf_projects(rootpath = "components")
+    return ctx.recurse(dirs = dirs)
+
+
+def options(opt):
     opt.load("compiler_c compiler_cxx")
-    opt.load('ceedling', tooldir=os.path.join('.', 'waf_tools'))
-    opt.recurse(dirs = dirs)
+    opt.load('ceedling', tooldir=WAF_TOOL_DIR)
+    recurse(opt)
 
 
 def configure(cnf):
     print("configure")
-    
-    dirs = find_waf_projects(rootpath = "components")
     #cnf.setenv('gcc_oo')
     cnf.load('compiler_c compiler_cxx')
-    cnf.load('ceedling', tooldir=os.path.join('.', 'waf_tools'))
-    cnf.recurse(dirs = dirs)
+    cnf.load('ceedling', tooldir=WAF_TOOL_DIR)
+    recurse(cnf)
 
 
 def build(bld):
-    print("build!")
-    dirs = find_waf_projects(rootpath = "components")
-    bld.recurse(dirs = dirs)
-    bld(features="ceedling")
+    if bld.cmd == 'ceedling':
+        bld(features="ceedling")
+    else:
+        recurse(bld)
+
+
+class ceedling(BuildContext):
+	cmd = 'ceedling'

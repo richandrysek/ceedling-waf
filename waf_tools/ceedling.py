@@ -17,11 +17,15 @@ class ceedling(Task.Task):
     """Run ceedling unit test framework"""
     color   = 'GREEN'
     always_run = True
-    if platform.system().lower().startswith('win'):
-        run_str = 'cmd.exe /c "set CEEDLING_MAIN_PROJECT_FILE=${CEEDLING_MAIN_PROJECT_FILE} && ${CEEDLING} ${CEEDLING_OPTIONS}"'
-    else:
-        run_str = 'CEEDLING_MAIN_PROJECT_FILE=${CEEDLING_MAIN_PROJECT_FILE} ${CEEDLING} ${CEEDLING_OPTIONS}'
 
+    def run(self):
+        if platform.system().lower().startswith('win'):
+            options = ' '.join(self.env.CEEDLING_OPTIONS)
+            cmd = "cmd.exe /c \"set CEEDLING_MAIN_PROJECT_FILE=%s && %s %s\"" % (self.env.CEEDLING_MAIN_PROJECT_FILE, self.env.CEEDLING[0], options)
+        else:
+            cmd = "not implemented yet"
+
+        return self.exec_command(cmd)
 
 @TaskGen.feature("ceedling")
 def add_ceedling_task(self):
@@ -52,3 +56,4 @@ def configure(conf):
 
     conf.env.CEEDLING_MAIN_PROJECT_FILE = os.path.abspath(conf.options.CEEDLING_MAIN_PROJECT_FILE)
     conf.env.CEEDLING_OPTIONS = conf.options.CEEDLING_OPTIONS
+
