@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-# encoding: utf-8
-# Richard Andrysek, 2024
-# RENU Eletronics 2024 Copyright
+
+__author__      = "Richard Andrysek"
+__copyright__   = "Copyright 2024, Renu Electronics GmbH"
 
 """
-The **ceedling** program is a unit test framework for C or C++ files.
+The **ceedling** is a unit test framework for C files.
 The generated files are in the build directory.
 """
 
