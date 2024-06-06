@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+
+__author__      = "Richard Andrysek"
+__copyright__   = "Copyright 2024, Renu Electronics GmbH"
+
+def options(opt):
+        print("app options!")
+
+
+def configure(cnf):
+        print("app configure!")
+
+
+def build(bld):
+        print("app build!")
+        bld(
+                features='c cxx cxxprogram',
+                source=["src/main.c"],
+                target="helloworld", 
+                use=["mcal"]
+        )
+        

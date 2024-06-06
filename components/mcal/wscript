@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+
+__author__      = "Richard Andrysek"
+__copyright__   = "Copyright 2024, Renu Electronics GmbH"
+
+def options(opt):
+        print("mcal options!")
+
+
+def configure(cnf):
+        print("mcal configure!")
+
+
+def build(bld):
+        print("mcal build!")
+        bld(
+                #features='c cxx cxxstlib',
+                #features='c cxxstlib',
+                features='c cshlib',
+                source="src/gpio.c src/led.c",
+                target="mcal"
+        )
+        
