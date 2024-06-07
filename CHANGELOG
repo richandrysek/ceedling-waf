@@ -1,6 +1,18 @@
 Changelog
 ===========
 
+0.0.3
+---------------------------------------
+
+Features:
+
+* add examples GPIO, LED and their testing, including their coverage
+
+Documentation:
+
+* add a picture with a gcov coverage results
+* add aa documentation slow_start.md describing a project structure and unit tests
+
 0.0.2
 ---------------------------------------
 

@@ -42,6 +42,7 @@ def configure(cnf):
     # set default toolchain
     cnf.setenv("")
     cnf.load('compiler_c compiler_cxx')
+    cnf.env.append_value('CCFLAGS', '-std=c11 -Wall -pedantic')
 
     recurse(cnf)
 

@@ -18,6 +18,7 @@ def build(bld):
                 #features='c cxxstlib',
                 features='c cshlib',
                 source="src/gpio.c src/led.c",
+                includes="inc",
                 target="mcal"
         )
         

@@ -40,8 +40,7 @@
   :source:
     - components/mcal/src/**
   :include:
-    - components/app/src/**
-    - components/mcal/src/**
+    - components/mcal/inc/**
   :support:
     - test/support
   :libraries: []
@@ -83,9 +82,11 @@
   :reports:
     - HtmlDetailed
   :gcovr:
-    :report_include: "^../components/mcal/src.*"
+    #:report_include: "^../components/mcal/src.*"
     :html_medium_threshold: 75
     :html_high_threshold: 90
+    # Exclude source files that match this filter. (gcovr --exclude).
+    :report_exclude: "^vendor.*|^build.*|^test.*|^lib.*"
 
 #:tools:
 # Ceedling defaults to using gcc for compiling, linking, etc.

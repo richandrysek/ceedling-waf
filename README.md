@@ -58,3 +58,9 @@ By configuring the waf some ceedling options are used:
 * ceedling-project-file - specify where to find a ceedling configuration file
 * ceedling-options - specify additional ceedling options; in this case a gcov code coverage reports are enabled
 
+The code coverage report can be found in the path ".\build\ceedling\artifacts\gcov\GcovCoverageResults.html" .
+
+![Code coverage overview (gcov)](./doc/imgs/gcov_summary.png)
+
+Fo further details click on a specific c file.
+
