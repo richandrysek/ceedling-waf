@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 __author__      = "Richard Andrysek"
-__copyright__   = "Copyright 2024, Renu Electronics GmbH"
+__copyright__   = "Copyright 2024 "
 
 """
 The **ceedling** is a unit test framework for C files.
@@ -23,7 +23,7 @@ class ceedling(Task.Task):
             options = ' '.join(self.env.CEEDLING_OPTIONS)
             cmd = "cmd.exe /c \"set CEEDLING_MAIN_PROJECT_FILE=%s && %s %s\"" % (self.env.CEEDLING_MAIN_PROJECT_FILE, self.env.CEEDLING[0], options)
         else:
-            cmd = "not implemented yet"
+            cmd = "not implemented yet for '%s'" % (platform.system())
 
         return self.exec_command(cmd)
 

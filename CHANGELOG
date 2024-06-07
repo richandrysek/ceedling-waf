@@ -1,6 +1,23 @@
 Changelog
 ===========
 
+0.0.2
+---------------------------------------
+
+Features:
+
+* gcov code coverage report plugin enabled for a waf build system
+* add an extra environment "gcc_ia64" for a ceedling build context
+
+Documentation:
+
+* add gcov install and usage steps in the file README.md
+
+Fix:
+
+* set "mcal" directory instead of "app", for parsing a source files in the ceedling 
+
+
 0.0.1
 ---------------------------------------
 
@@ -8,6 +25,6 @@ Features:
 
 * ceedling plugin for a waf build system
 
-Documentation
+Documentation:
 
 * add README.md how to install and use a current version

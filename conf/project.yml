@@ -24,7 +24,11 @@
 #  :output: MyApp.out
 #  :use_assembly: FALSE
 
-:environment:
+#:environment:
+#  - :path:
+#    - C:\Ruby30-x64\msys64\mingw64\bin\
+#    - C:\Users\vagrant\AppData\Local\Programs\Python\Python312\Scripts\
+  
 
 :extension:
   :executable: .out
@@ -34,7 +38,7 @@
     - +:test/**
     - -:test/support
   :source:
-    - components/app/src/**
+    - components/mcal/src/**
   :include:
     - components/app/src/**
     - components/mcal/src/**
@@ -73,9 +77,13 @@
 # You will need to have gcov and gcovr both installed to make it work.
 # For more information on these options, see docs in plugins/gcov
 :gcov:
+  :utilities:
+    - gcovr           # Use gcovr to create the specified reports (default).
+    #- ReportGenerator # Use ReportGenerator to create the specified reports.
   :reports:
     - HtmlDetailed
   :gcovr:
+    :report_include: "^../components/mcal/src.*"
     :html_medium_threshold: 75
     :html_high_threshold: 90
 
@@ -100,6 +108,7 @@
   :load_paths:
     - "#{Ceedling.load_path}"
   :enabled:
-    - stdout_pretty_tests_report
+    #- stdout_pretty_tests_report
     - module_generator
+    - gcov
 ...

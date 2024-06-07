@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 __author__      = "Richard Andrysek"
-__copyright__   = "Copyright 2024, Renu Electronics GmbH"
+__copyright__   = "Copyright 2024 "
 
 import os
 from waflib.Build import BuildContext
@@ -33,9 +33,16 @@ def options(opt):
 
 def configure(cnf):
     print("configure")
-    #cnf.setenv('gcc_oo')
+    
+    # set ceedling tool chain
+    cnf.setenv('gcc_ia64')
     cnf.load('compiler_c compiler_cxx')
     cnf.load('ceedling', tooldir=WAF_TOOL_DIR)
+
+    # set default toolchain
+    cnf.setenv("")
+    cnf.load('compiler_c compiler_cxx')
+
     recurse(cnf)
 
 
@@ -47,4 +54,5 @@ def build(bld):
 
 
 class ceedling(BuildContext):
-	cmd = 'ceedling'
+    cmd = 'ceedling'
+    variant = "gcc_ia64"
