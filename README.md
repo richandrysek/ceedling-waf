@@ -4,7 +4,7 @@
 
 [andrysek](https://andrysek.de/)
 
-This demo shows how to use the ceedling together with a waf build framework.
+This demo shows how to use the ceedling together with a waf build framework on a very simple embedded c project.
 
 ## System requirements
 
@@ -40,8 +40,7 @@ gem install ceedling
 ### Get project
 
 ```powershell
-git clone https://github.com/richandrysek/ceedling-waf
-git submodule update --init --recursive
+git clone --recurse-submodules https://github.com/richandrysek/ceedling-waf
 cd waf
 python ./waf-light configure build
 ```
@@ -62,5 +61,5 @@ The code coverage report can be found in the path ".\build\ceedling\artifacts\gc
 
 ![Code coverage overview (gcov)](./doc/imgs/gcov_summary.png)
 
-Fo further details click on a specific c file.
+For further details click on a specific c file.
 

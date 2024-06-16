@@ -120,10 +120,10 @@ In this file is set a custom ceedling target using an extension from a subdirect
 The ```#ifdef TEST``` construct is used to exclude analyzing the code for non ceedling target,
 followed by including an include file with the unit test API. On the line 5 is included a c module
 under a test. The gpio.c calls internally mcu_reg.h macros to access registers. For this and several
-other modules is used a shared file ```help_mcux_reg.c```. On lines 11-18 are functions called
-before and after each test functions to initialize and clear some variables. On the lines 20-38
+other modules is used a shared file ```help_mcux_reg.c```. On the line 11-18 are functions called
+before and after each test functions to initialize and clear some variables. On the line 20-38
 is written a first test for a function ```GPIO_Config```. We call the function followed
-by several TEST_ASSERTs, repeated to cover all branches in the tested function. Similar on lines
+by several TEST_ASSERTs, repeated to cover all branches in the tested function. Similar on the line
 40-51 is done for the function ```GPIO_SetPin``` .
 
 This module does not use other c modules. Such case is shown in the following chapter for the file ```led.c``` 
@@ -260,12 +260,12 @@ parts, for the rest please see a ceedling documentation.
 46   :libraries: []
 ```
 
-On line 37-39 is configured where to find test files and support ceedling files, see the marks
-'+' and '-', where minus means to ignore. On line 40-43 where are source files to test 
+On the line 37-39 is configured where to find test files and support ceedling files, see the marks
+'+' and '-', where minus means to ignore. On the line 40-43 where are source files to test 
 and their include files. If some library is used, than it may be add on the line 46.
 
-To get gcov code coverage reports following lines are needed: 75-89 to configure the gcov
-and 114 to include a gcov plugin. On line 89 is configured which files shall be
+Following lines are needed to get gcov code coverage reports : 75-89 to configure the gcov
+and 114 to include a gcov plugin. On the line 89 is configured which files shall be
 excluded form a coverage report.
 
 ```
