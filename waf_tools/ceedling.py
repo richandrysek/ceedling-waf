@@ -50,7 +50,7 @@ def options(opt):
 def configure(conf):
     """Detect ceedling, related programs and set configuration variables"""
 
-    required_programs = ["ruby", "gcc", "ceedling"]
+    required_programs = ["ruby", "gcc", "ceedling", "gcovr"]
     for required_program in required_programs: 
         conf.find_program(required_program, mandatory=True)
 

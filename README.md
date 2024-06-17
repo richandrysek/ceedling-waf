@@ -46,6 +46,8 @@ gem install ceedling
 
 ```powershell
 git clone --recurse-submodules https://github.com/richandrysek/ceedling-waf
+# for later updates of subrepositories
+# git submodule update --init --recursive -v
 cd waf
 python ./waf-light configure build
 ```
