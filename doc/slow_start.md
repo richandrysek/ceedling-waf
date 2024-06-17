@@ -23,8 +23,10 @@ In this repository is used a Python based 'wscript' files. But it should be diff
 
 The project is structured as described below:
 
-```
-+- /builds
+```shell
++- /build
+|     +---------/ceedling
+|     +---------...
 |
 +- /components
 |     +---------/app
@@ -74,15 +76,16 @@ The project is structured as described below:
 
 #### build
 
-Build artifacts, the ceedling artifcats are in the subdirectory ```ceedling``` .
+Build artifacts for a target and ceedling. The ceedling artifcats, including gcov reports,
+are in the subdirectory ```ceedling``` .
 
 #### MCAL
 
 It consists of two components *app* and *mcal*. In the "app" is an application's main function. The mcal is
-an microcontroller abstarction layer, in our case with GPIO and LED modules. These will be tested with 
+an microcontroller abstarction layer, in our case with GPIO and LED modules. These will be tested with
 a ceedling.
 
-**NOTE** For testing on a host system were needed to modify the mcu_reg.h with this code part 
+**NOTE** For testing on a host system were needed to modify the mcu_reg.h with this code part
         '''#ifdef TEST''' , to emulate registers.
 
 Each component has its own wscript file.
@@ -112,7 +115,7 @@ Contains an extension ```ceedling.py``` to easy integrate calls for unit testing
 
 #### top dir
 
-The top directory contains common github project files (e.g. CHANGELOG) and the main wscript file. 
+The top directory contains common github project files (e.g. CHANGELOG) and the main wscript file.
 In this file is set a custom ceedling target using an extension from a subdirectory ```waf_tools```.
 
 ### Unit tests for the file gpio.c
@@ -126,9 +129,9 @@ is written a first test for a function ```GPIO_Config```. We call the function f
 by several TEST_ASSERTs, repeated to cover all branches in the tested function. Similar on the line
 40-51 is done for the function ```GPIO_SetPin``` .
 
-This module does not use other c modules. Such case is shown in the following chapter for the file ```led.c``` 
+This module does not use other c modules. Such case is shown in the following chapter for the file ```led.c```
 
-```
+```c
 1 #ifdef TEST
 2
 3 #include "unity.h"
@@ -191,7 +194,7 @@ This module does not use other c modules. Such case is shown in the following ch
 
 ### Unit tests for the file led.c
 
-The ```#ifdef TEST``` construct is used, as before, to exclude analyzing the code for 
+The ```#ifdef TEST``` construct is used, as before, to exclude analyzing the code for
 non ceedling target, followed by including an include file with the unit test API.
 On the line 5 is included a c module under a test. Again is reused a file with a
 register emulation for a host target.
@@ -203,7 +206,7 @@ and generate a mock automatically and integrates into the build scripts.
 
 Internal GPIO_XXX calls are checked (line 23) or ignored (line 13) though a mocked functions.
 
-```
+```c
 1 #ifdef TEST
 2 
 3 #include "unity.h"
@@ -245,8 +248,7 @@ Internal GPIO_XXX calls are checked (line 23) or ignored (line 13) though a mock
 In this file are all settings for the ceedling. Here will be described the most important
 parts, for the rest please see a ceedling documentation.
 
-
-```
+```yaml
 36 :paths:
 37   :test:
 38     - +:test/**
@@ -261,14 +263,14 @@ parts, for the rest please see a ceedling documentation.
 ```
 
 On the line 37-39 is configured where to find test files and support ceedling files, see the marks
-'+' and '-', where minus means to ignore. On the line 40-43 where are source files to test 
+'+' and '-', where minus means to ignore. On the line 40-43 where are source files to test
 and their include files. If some library is used, than it may be add on the line 46.
 
 Following lines are needed to get gcov code coverage reports : 75-89 to configure the gcov
 and 114 to include a gcov plugin. On the line 89 is configured which files shall be
 excluded form a coverage report.
 
-```
+```yaml
 75 # Add -gcov to the plugins list to make sure of the gcov plugin
 76 # You will need to have gcov and gcovr both installed to make it work.
 77 # For more information on these options, see docs in plugins/gcov
@@ -286,7 +288,7 @@ excluded form a coverage report.
 89     :report_exclude: "^vendor.*|^build.*|^test.*|^lib.*"
 ```
 
-```
+```yaml
 108 :plugins:
 109   :load_paths:
 110     - "#{Ceedling.load_path}"
@@ -305,14 +307,14 @@ We setup a gcc for IA64 architecture on the line 37-40. In this part we load
 also the plugin "ceedling" in the "WAF_TOOL_DIR". On the line 42-45 is set
 a compiler for a target.
 
-*** NOTE *** You can try to run a binary "helloworld.exe". In a real embedded project
+***NOTE*** You can try to run a binary "helloworld.exe". In a real embedded project
              it will be a firmware for a given target.
 
 On the line 57-59 is created a custom command "ceedling" and on the line 51-52 is add
 plugin "ceedling" for this command. The command call and needed options are done
 in the file ```./waf-tools/ceedling.py```.
 
-```
+```python
 34 def configure(cnf):
 35    print("configure")
 36    
