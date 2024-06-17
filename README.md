@@ -12,8 +12,11 @@ This demo shows how to use the ceedling together with a waf build framework on a
 |---------------------------------------------------------------------------------------------------------------|-----------------------|
 |[Ruby](https://developer.hashicorp.com/packer/install?product_intent=packer)                                   | ruby 3.0.4p208        |
 |[Ceedling](https://developer.hashicorp.com/vagrant/install?product_intent=vagrant)                             | 0.31.1                |
-|[Python3](https://developer.hashicorp.com/vagrant/docs/providers/vmware/vagrant-vmware-utility)                | 3.12.3                |
+|[Python3](https://developer.hashicorp.com/vagrant/docs/providers/vmware/vagrant-vmware-utility)                | 3.12.4                |
+|[gcc](https://gcc.gnu.org/) - part of Ruby installation                                                        | 11.2.0                |
 |[gcovr](https://pypi.org/project/gcovr/)                                                                       | 7.2                   |
+|[git](https://git-scm.com/)                                                                                    | 2.45.2                |
+
 
 ## Installation
 
@@ -27,6 +30,8 @@ The ceedling runs with Ruby 3.0, newer versions are not yet ported.
 ## Windows 11
 
 ```powershell
+winget install Python.Python.3.12
+winget install Git.Git
 winget install RubyInstallerTeam.RubyWithDevKit.3.0
 pip install gcovr
 $env:Path +=';C:\Ruby30-x64\bin\'
