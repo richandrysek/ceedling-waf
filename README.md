@@ -33,10 +33,10 @@ The ceedling runs with Ruby 3.0, newer versions are not yet ported.
 winget install Python.Python.3.12
 winget install Git.Git
 winget install RubyInstallerTeam.RubyWithDevKit.3.0
-pip install gcovr
 $env:Path +=';C:\Ruby30-x64\bin\'
 $env:PATH +=';C:\Ruby30-x64\msys64\mingw64\bin'
 $env:PATH +=';C:\Users\vagrant\AppData\Local\Programs\Python\Python312\Scripts\'
+pip install gcovr
 gem install ceedling
 ```
 
