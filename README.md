@@ -59,19 +59,13 @@ python ./waf-light configure build
 ### Build and run unit tests
 
 Modify in a file project.yml a line : 'C:\Users\Docker\AppData\Local\Programs\Python\Python312\Scripts\',
-exchange an user directory "Docker" with a current username.
+exchange an user directory "Docker" with a current username. After that proceed commands below.
 
 ```powershell
 python waf/waf configure --ceedling-options "gcov:all"  --check-c-compiler gcc --check-cxx-compiler g++
 python waf/waf build
 python waf/waf ceedling
 ```
-
-The command ceedling can be also called separately
-```
-ceedling.cmd
-```
-
 By configuring the waf some ceedling options are used:
 
 * ceedling-options - specify additional ceedling options; in this case a gcov code coverage reports are enabled
@@ -83,3 +77,9 @@ The code coverage report can be found in the path ".\build\ceedling\artifacts\gc
 ![Code coverage overview (gcov)](./doc/imgs/gcov_summary.png)
 
 For further details click on a specific c file.
+
+The command ceedling can be also called separately by typing:
+
+```
+ceedling.cmd
+```
