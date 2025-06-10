@@ -43,9 +43,6 @@ The project is structured as described below:
 |                 |        +------led.c
 |                 +------wscript
 |
-+- /conf
-|     +---------/project.yml
-| 
 +- /doc
 |     +---------/imgs
 |     |           +------...
@@ -71,6 +68,8 @@ The project is structured as described below:
 +-README.md
 +-SECURITY
 +-SUPPORT
++-ceedling.cmd
++-project.yml
 +-wsxript
 ```
 
@@ -92,7 +91,7 @@ Each component has its own wscript file.
 
 #### conf
 
-The whole ceedling configuration can be found in the file ```conf/projects.yml``` .
+The whole ceedling configuration can be found in the file ```./project.yml``` .
 
 #### doc
 
@@ -243,59 +242,59 @@ Internal GPIO_XXX calls are checked (line 23) or ignored (line 13) though a mock
 34 #endif // TEST
 ```
 
-### Ceedling configuration ```conf/project.yml```
+### Ceedling configuration ```./project.yml```
 
 In this file are all settings for the ceedling. Here will be described the most important
 parts, for the rest please see a ceedling documentation.
 
 ```yaml
-36 :paths:
-37   :test:
-38     - +:test/**
-39     - -:test/support
-40   :source:
-41     - components/mcal/src/**
-42   :include:
-43     - components/mcal/inc/**
-44   :support:
-45     - test/support
-46   :libraries: []
+35 :paths:
+36   :test:
+37     - +:test/**
+38     - -:test/support
+39   :source:
+40     - components/mcal/src/**
+41   :include:
+42     - components/mcal/inc/**
+43   :support:
+44     - test/support
+45   :libraries: []
 ```
 
-On the line 37-39 is configured where to find test files and support ceedling files, see the marks
-'+' and '-', where minus means to ignore. On the line 40-43 where are source files to test
+On the line 36-38 is configured where to find test files and support ceedling files, see the marks
+'+' and '-', where minus means to ignore. On the line 39-42 where are source files to test
 and their include files. If some library is used, than it may be add on the line 46.
 
-Following lines are needed to get gcov code coverage reports : 75-89 to configure the gcov
-and 114 to include a gcov plugin. On the line 89 is configured which files shall be
+Following lines are needed to get gcov code coverage reports : 74-89 to configure the gcov
+and 113 to include a gcov plugin. On the line 88 is configured which files shall be
 excluded form a coverage report.
 
 ```yaml
-75 # Add -gcov to the plugins list to make sure of the gcov plugin
-76 # You will need to have gcov and gcovr both installed to make it work.
-77 # For more information on these options, see docs in plugins/gcov
-78 :gcov:
-79   :utilities:
-80     - gcovr           # Use gcovr to create the specified reports (default).
-81     #- ReportGenerator # Use ReportGenerator to create the specified reports.
-82   :reports:
-83     - HtmlDetailed
-84   :gcovr:
-85     #:report_include: "^../components/mcal/src.*"
-86     :html_medium_threshold: 75
-87     :html_high_threshold: 90
-88     # Exclude source files that match this filter. (gcovr --exclude).
-89     :report_exclude: "^vendor.*|^build.*|^test.*|^lib.*"
+74 # Add -gcov to the plugins list to make sure of the gcov plugin
+75 # You will need to have gcov and gcovr both installed to make it work.
+76 # For more information on these options, see docs in plugins/gcov
+77 :gcov:
+78   :utilities:
+79     - gcovr           # Use gcovr to create the specified reports (default).
+80     #- ReportGenerator # Use ReportGenerator to create the specified reports.
+81   :reports:
+82     - HtmlDetailed
+83   :gcovr:
+84     #:report_include: "^../components/mcal/src.*"
+85     :html_medium_threshold: 75
+86     :html_high_threshold: 90
+87     # Exclude source files that match this filter. (gcovr --exclude).
+88     :report_exclude: "^vendor.*|^build.*|^test.*|^lib.*"
+89     :print_summary: TRUE
 ```
 
 ```yaml
 108 :plugins:
-109   :load_paths:
-110     - "#{Ceedling.load_path}"
-111   :enabled:
-112     #- stdout_pretty_tests_report
-113     - module_generator
-114     - gcov
+109   :load_paths: []
+110   :enabled:
+111     #- stdout_pretty_tests_report
+112     - module_generator
+113     - gcov
 ```
 
 ### Main script file - setup for ceedling

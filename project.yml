@@ -7,7 +7,7 @@
 
 :project:
   :use_exceptions: FALSE
-  :use_test_preprocessor: TRUE
+#  :use_test_preprocessor: TRUE
   :use_auxiliary_dependencies: TRUE
   :build_root: build/ceedling
 #  :release_build: TRUE
@@ -24,11 +24,10 @@
 #  :output: MyApp.out
 #  :use_assembly: FALSE
 
-#:environment:
-#  - :path:
-#    - C:\Ruby30-x64\msys64\mingw64\bin\
-#    - C:\Users\vagrant\AppData\Local\Programs\Python\Python312\Scripts\
-  
+:environment:
+  - :path:
+    - 'C:\Ruby30-x64\msys64\mingw64\bin'
+    - 'C:\Users\vagrant\AppData\Local\Programs\Python\Python312\Scripts\'
 
 :extension:
   :executable: .out
@@ -87,6 +86,7 @@
     :html_high_threshold: 90
     # Exclude source files that match this filter. (gcovr --exclude).
     :report_exclude: "^vendor.*|^build.*|^test.*|^lib.*"
+    :print_summary: TRUE
 
 #:tools:
 # Ceedling defaults to using gcc for compiling, linking, etc.
@@ -106,10 +106,10 @@
   :release: []
 
 :plugins:
-  :load_paths:
-    - "#{Ceedling.load_path}"
+  :load_paths: []
   :enabled:
     #- stdout_pretty_tests_report
     - module_generator
     - gcov
-...
+
+

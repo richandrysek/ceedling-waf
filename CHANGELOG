@@ -1,6 +1,22 @@
 Changelog
 ===========
 
+0.0.4
+---------------------------------------
+
+Features:
+
+* updated a tool chain
+* add a dos batch command ceedling.bat
+* file project.yml moved to the top directory
+* add fixed path to the tool chain
+
+Documentation:
+
+* updated tools' versions, links and their installation (gcovr 8.3,...)
+* updated an usage description
+* updated an image with aresult for a new version of gcov
+
 0.0.3
 ---------------------------------------
 
@@ -11,7 +27,7 @@ Features:
 Documentation:
 
 * add a picture with a gcov coverage results
-* add aa documentation slow_start.md describing a project structure and unit tests
+* add a documentation slow_start.md describing a project structure and unit tests
 
 0.0.2
 ---------------------------------------
