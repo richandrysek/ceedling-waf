@@ -46,12 +46,16 @@ gem install ceedling -v 1.0.1
 
 ### Get project
 
+Clone the repository and build waf tool chain. After that switch back to the main project directory
+
 ```powershell
 git clone --recurse-submodules https://github.com/richandrysek/ceedling-waf
 # for later updates of subrepositories
 # git submodule update --init --recursive -v
+cd ceedling-waf
 cd waf
 python ./waf-light configure build
+cd ..
 ```
 
 **NOTE:** The project contains a sub-repository.
@@ -81,5 +85,5 @@ For further details click on a specific c file.
 The command ceedling can be also called separately by typing:
 
 ```
-ceedling.cmd
+.\ceedling.cmd
 ```

@@ -27,7 +27,7 @@
 :environment:
   - :path:
     - 'C:\Ruby30-x64\msys64\mingw64\bin'
-    - 'C:\Users\vagrant\AppData\Local\Programs\Python\Python312\Scripts\'
+    - 'C:\Users\Docker\AppData\Local\Programs\Python\Python312\Scripts\'
 
 :extension:
   :executable: .out
