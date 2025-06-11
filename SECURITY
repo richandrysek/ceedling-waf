@@ -1,6 +1,10 @@
 # Security
 
+Different system versions have varying privilege levels. Verify permissions 
+for each version to maintain security integrity.
+
 This project is currently neither analyzed nor regularly monitored for incidents.
 
 Any security vulnerabilities found can be reported at <support@andrysek.de> and state
 CEEDLING-WAF-SECURITY in the subject line.
+
