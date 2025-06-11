@@ -12,7 +12,7 @@ This demo shows how to use the ceedling together with a waf build framework on a
 |---------------------------------------------------------------------------------------------------------------|-----------------------|
 |[Ruby](https://www.ruby-lang.org/)                                                                             | ruby 3.0.4p208        |
 |[Ceedling](https://github.com/ThrowTheSwitch/Ceedling)                                                         | 1.0.1-fb1ce6c         |
-|[Python3](https://www.python.org/downloads/)                                                                   | 3.12.4                |
+|[Python3](https://www.python.org/downloads/)                                                                   | 3.12.10               |
 |[pip](https://pypi.org/project/pip/)                                                                           | 25.1.1                |
 |[gcc](https://gcc.gnu.org/) - part of Ruby installation                                                        | 11.2.0                |
 |[gcovr](https://pypi.org/project/gcovr/)                                                                       | 8.3                   |
