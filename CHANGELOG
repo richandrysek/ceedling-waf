@@ -14,8 +14,9 @@ Features:
 Documentation:
 
 * updated tools' versions, links and their installation (gcovr 8.3,...)
+* add a new chapter "Verify installation"
 * updated an usage description
-* updated an image with aresult for a new version of gcov
+* updated an image with a result for a new version of gcov
 
 0.0.3
 ---------------------------------------

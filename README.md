@@ -46,6 +46,14 @@ gem install ceedling -v 1.0.1
 
 ### Verify installation
 
+The 'PATH' system variable should resemble the example shown in the figure below.
+
+![System variable "PATH"](./doc/imgs/system_variable_path.png)
+
+The 'PATH' user variable should resemble the example shown in the figure below.
+
+![User variable "PATH"](./doc/imgs/user_variable_path.png)
+
 Open a new PowerShell command line to verify the toolchain installation and set variables:
 
 ```powershell
