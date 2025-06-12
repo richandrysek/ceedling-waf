@@ -1,9 +1,9 @@
 @REM Example of usage :
-@REM     .\ceedling.cmd gcov:all utils:gcov
+@REM     .\ceedling.cmd gcov:all 
 @REM
 @REM  Parameters:
 @REM     -c configfile  ceedling configuration file (default: .\conf\project.yml)
-@REM     nargs          ceedling arguments (default: gcov:all utils:gcov)
+@REM     nargs          ceedling arguments (default: gcov:all )
 @REM
 
 @REM set python path

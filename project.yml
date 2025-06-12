@@ -13,7 +13,7 @@
 #  :release_build: TRUE
   :test_file_prefix: test_
   :which_ceedling: gem
-  :ceedling_version: 0.31.1
+  #:ceedling_version: 0.31.1
   :default_tasks:
     - test:all
 
@@ -34,8 +34,9 @@
 
 :environment:
   - :path:
-    - 'C:\Ruby30-x64\msys64\mingw64\bin'
     - 'C:\Users\Docker\AppData\Local\Programs\Python\Python312\Scripts\'
+    - 'C:\Ruby30-x64\msys64\mingw64\bin'
+  - :gcovr: C:/Users/Docker/AppData/Local/Programs/Python/Python312/Scripts/gcovr.exe
 
 :extension:
   :executable: .out
@@ -83,6 +84,7 @@
 # You will need to have gcov and gcovr both installed to make it work.
 # For more information on these options, see docs in plugins/gcov
 :gcov:
+  :xml_report: TRUE
   :utilities:
     - gcovr           # Use gcovr to create the specified reports (default).
     #- ReportGenerator # Use ReportGenerator to create the specified reports.
@@ -100,6 +102,9 @@
     :report_exclude: "^vendor.*|^build.*|^test.*|^lib.*"
     :print_summary: TRUE
     :html_report_type:  detailed
+
+:xml_tests_report:
+  :artifact_filename: ..\test\report.xml
 
 #:tools:
 # Ceedling defaults to using gcc for compiling, linking, etc.
@@ -124,8 +129,9 @@
     - module_generator
     - gcov
     # uncomment following two lines to run with a debugger in vscode
-    #- xml_tests_report
+    # - xml_tests_report
     #- stdout_pretty_tests_report
-    
+    - report_tests_log_factory
+    - report_tests_pretty_stdout
 
 
