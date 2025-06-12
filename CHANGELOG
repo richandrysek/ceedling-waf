@@ -10,6 +10,7 @@ Features:
 * add a dos batch command ceedling.bat
 * file project.yml moved to the top directory
 * add fixed path to the tool chain
+* add vscode configuration files for a debug support
 
 Documentation:
 
@@ -17,6 +18,7 @@ Documentation:
 * add a new chapter "Verify installation"
 * updated an usage description
 * updated an image with a result for a new version of gcov
+* add a new documentation ./doc/debugging.md
 
 0.0.3
 ---------------------------------------
