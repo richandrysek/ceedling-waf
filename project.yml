@@ -121,11 +121,11 @@
 :plugins:
   :load_paths: []
   :enabled:
-    #- stdout_pretty_tests_report
     - module_generator
     - gcov
-    - xml_tests_report
-    - stdout_pretty_tests_report
+    # uncomment following two lines to run with a debugger in vscode
+    #- xml_tests_report
+    #- stdout_pretty_tests_report
     
 
 
