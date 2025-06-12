@@ -17,6 +17,14 @@
   :default_tasks:
     - test:all
 
+# Specify which reports you'd like from the log factory
+:report_tests_log_factory:
+  :reports:
+    - json
+    - junit
+    - cppunit
+    - html
+    
 #:test_build:
 #  :use_assembly: TRUE
 
@@ -27,7 +35,7 @@
 :environment:
   - :path:
     - 'C:\Ruby30-x64\msys64\mingw64\bin'
-    - 'C:\Users\Docker\AppData\Local\Programs\Python\Python312\Scripts\'
+    - 'C:\Users\richard.andrysek\AppData\Local\Programs\Python\Python312\Scripts\'
 
 :extension:
   :executable: .out
@@ -80,6 +88,10 @@
     #- ReportGenerator # Use ReportGenerator to create the specified reports.
   :reports:
     - HtmlDetailed
+    - Cobertura
+    - Xml
+    - XmlSummary
+
   :gcovr:
     #:report_include: "^../components/mcal/src.*"
     :html_medium_threshold: 75
@@ -87,6 +99,7 @@
     # Exclude source files that match this filter. (gcovr --exclude).
     :report_exclude: "^vendor.*|^build.*|^test.*|^lib.*"
     :print_summary: TRUE
+    :html_report_type:  detailed
 
 #:tools:
 # Ceedling defaults to using gcc for compiling, linking, etc.
@@ -111,5 +124,8 @@
     #- stdout_pretty_tests_report
     - module_generator
     - gcov
+    - xml_tests_report
+    - stdout_pretty_tests_report
+    
 
 
