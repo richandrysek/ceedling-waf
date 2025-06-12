@@ -12,7 +12,7 @@ To achieve that it uses:
 - gcovr - tool to generate a code coverage reports
 - unity - library to simplify a writing of unit tests
 
-All these tools are configured in one yaml file, in this case in a subfolder `./conf/project.yml`.
+All these tools are configured in one yaml file, in this case in a subfolder `./project.yml`.
 
 **NOTE** You may use this toolchain also on a goal target or for integration tests.
 
