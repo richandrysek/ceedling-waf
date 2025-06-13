@@ -47,8 +47,12 @@
     - -:test/support
   :source:
     - components/mcal/src/**
+    - components/mathlib/src/**
+    - components/memaccess/src/**
   :include:
     - components/mcal/inc/**
+    - components/mathlib/inc/**
+    - components/memaccess/inc/**
   :support:
     - test/support
   :libraries: []

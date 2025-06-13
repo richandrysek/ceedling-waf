@@ -17,6 +17,7 @@ typedef enum GPIO_Mode_ {
 extern void GPIO_Init(void);
 extern int32_t GPIO_Config(GPIO * const pGpio, const uint32_t pin, const GPIO_Mode mode);
 extern int32_t GPIO_SetPin(GPIO * const pGpio, const uint32_t pin, const bool high);
+extern int32_t GPIO_GetPin(GPIO * const pGpio, const uint32_t pin, bool * const state);
 
 #ifdef __cplusplus
 }

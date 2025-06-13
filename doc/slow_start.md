@@ -4,7 +4,7 @@
 Developer should verify a behavior and functionality of a written code. The smallest portion of a code - unit - can 
 be tested isolated and independently from the rest of a code - unit test. To help with it to be faster a developer
 can use some of available frameworks. In this project will be used a framework ceedling, which simplifies a whole
-process from creating a unit test skeleton for a given c module till generating a report in several formats. 
+process from creating a unit test skeleton for a given c module till generating a report in several formats.
 To achieve that it uses:
 
 - cmock - tool to generate mocks for a given header file
@@ -17,7 +17,7 @@ All these tools are configured in one yaml file, in this case in a subfolder `./
 **NOTE** You may use this toolchain also on a goal target or for integration tests.
 
 The gcc-toolchain expects a description how to build artifacts, like e.g. Makefile, CMakeLists.txt etc.
-In this repository is used a Python based 'wscript' files. But it should be difficult to port to an another one.
+In this repository is used a Python based 'wscript' files. But it should not be difficult to port to an another one.
 
 ### Project structure
 
@@ -70,7 +70,7 @@ The project is structured as described below:
 +-SUPPORT
 +-ceedling.cmd
 +-project.yml
-+-wsxript
++-wscript
 ```
 
 #### build

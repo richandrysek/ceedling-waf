@@ -12,6 +12,7 @@
 @REM set default value(s)
 set NARGS=gcov:all 
 set CEEDLING_MAIN_PROJECT_FILE=.\project.yml
+set REST=
 
 @REM Parse arguments
 :parse

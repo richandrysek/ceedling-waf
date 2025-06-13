@@ -1,5 +1,7 @@
 #include "gpio.h"
 
+#include <stddef.h>
+
 static inline bool GPIO_isValid(GPIO * const pGpio)
 {
     return (pGpio == GPIOA);
@@ -51,6 +53,19 @@ int32_t GPIO_SetPin(GPIO * const pGpio, const uint32_t pin, const bool high)
         }
 
         pGpio->state = regVal;
+        ret = 0;
+    }
+
+    return ret;
+}
+
+int32_t GPIO_GetPin(GPIO * const pGpio, const uint32_t pin, bool * const state)
+{
+    int32_t ret = -1;
+
+    if(GPIO_isValid(pGpio) && state != NULL)
+    {
+        *state = (pGpio->state & pin) == pin;
         ret = 0;
     }
 

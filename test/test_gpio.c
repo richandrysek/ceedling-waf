@@ -1,3 +1,4 @@
+#define TEST
 #ifdef TEST
 
 #include "unity.h"
@@ -53,6 +54,23 @@ void test_gpio_set_pin(void)
     res = GPIO_SetPin(NULL, GPIO_PIN0, true);
     TEST_ASSERT(GPIOA->state == 0x00u);
     TEST_ASSERT(res == -1);
+}
+
+void test_gpio_get_pin(void)
+{
+    int32_t res;
+    bool state;
+
+    res = GPIO_GetPin(GPIOA, GPIO_PIN0, &state);
+    TEST_ASSERT_EQUAL(res, 0);
+    TEST_ASSERT_EQUAL(state, 0);
+
+    GPIOA->state = 0x01u;
+    res = GPIO_GetPin(GPIOA, GPIO_PIN0, &state);
+    TEST_ASSERT_EQUAL(res, 0);
+    TEST_ASSERT_EQUAL(state, 1);
+
+
 }
 
 #endif // TEST
