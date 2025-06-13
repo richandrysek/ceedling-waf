@@ -109,6 +109,16 @@ cd ..
 
 **NOTE:** The project contains a sub-repository.
 
+### Setup build environment
+
+The build environment shall be first setup, type:
+
+```powershell
+.\setenv.ps1
+```
+
+**Note**: If you update the toolchain, please also review this script for compatibility.
+
 ### Build and run unit tests
 
 Modify in a file project.yml a line : 'C:\Users\Docker\AppData\Local\Programs\Python\Python312\Scripts\',
