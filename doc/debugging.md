@@ -5,6 +5,7 @@ If some test failed/not failed and you do not know exactly why, than the debuggi
 
 ### Installation
 
+#### gdb
 Start msys64
 
 ```powershell
@@ -20,6 +21,24 @@ $ pacman -Syu
 $ pacman -Syu
 $ pacman -S mingw-w64-x86_64-gdb
 ```
+
+#### vscode-ceedling-test-adapter
+
+Offical extension in the Visual Studio is not compatible with ceedling >1.0.0. Thereof
+own buidl and VSIX File installation is needed.
+
+1. Install build toolchain
+   1. ```winget install Node.js```
+   2. ```Set-ExecutionPolicy -ExecutionPolicy RemoteSigned```
+   3. ```npm install -g @vscode/vsce```
+2. Clone a fork of an official repository :
+   ```git clone https://github.com/simeon-s1/vscode-ceedling-test-adapter.git```
+3. Build the VSIX File
+   1. ```npm install```
+   2. ```npm audit fix```
+   3. ```vsce package  # Generates a .vsix file```
+4. Install VSIX File in the Visual Studio
+   ```code --install-extension vscode-ceedling-test-adapter-multi-2.0.0.vsix```
 
 ### Run all tests
 

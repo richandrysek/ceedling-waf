@@ -32,11 +32,10 @@
 #  :output: MyApp.out
 #  :use_assembly: FALSE
 
-:environment:
-  - :path:
-    - 'C:\Users\Docker\AppData\Local\Programs\Python\Python312\Scripts\'
-    - 'C:\Ruby30-x64\msys64\mingw64\bin'
-  - :gcovr: C:/Users/Docker/AppData/Local/Programs/Python/Python312/Scripts/gcovr.exe
+#:environment:
+#  - :path:
+#    - 'C:\Users\Docker\AppData\Local\Programs\Python\Python312\Scripts\'
+#  - :gcovr: C:/Users/Docker/AppData/Local/Programs/Python/Python312/Scripts/gcovr.exe
 
 :extension:
   :executable: .out

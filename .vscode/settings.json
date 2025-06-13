@@ -3,7 +3,8 @@
   "files.associations": {
     "mylib.h": "c",
     "mock_mylib.h": "c",
-    "mcux_reg.h": "c"
+    "mcux_reg.h": "c",
+    "unity.h": "c"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",

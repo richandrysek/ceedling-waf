@@ -36,9 +36,7 @@ To install the toolchain using exact versions, follow these steps in the PowerSh
 winget install Python.Python.3.12
 winget install Git.Git
 winget install RubyInstallerTeam.RubyWithDevKit.3.0
-$env:Path +=';C:\Ruby30-x64\bin\'
-$env:PATH +=';C:\Ruby30-x64\msys64\mingw64\bin'
-$env:PATH +=";C:\Users\$env:USERNAME\AppData\Local\Programs\Python\Python312\Scripts\"
+.\setenv.ps1
 python.exe -m pip install --upgrade pip
 pip install gcovr==8.3
 gem install ceedling -v 1.0.1
@@ -121,6 +119,7 @@ python waf/waf configure --ceedling-options "gcov:all"  --check-c-compiler gcc -
 python waf/waf build
 python waf/waf ceedling
 ```
+
 By configuring the waf some ceedling options are used:
 
 * ceedling-options - specify additional ceedling options; in this case a gcov code coverage reports are enabled
@@ -135,6 +134,12 @@ For further details click on a specific c file.
 
 The command ceedling can be also called separately by typing:
 
+```powershell
+.\unit-test.ps1
 ```
-.\ceedling.cmd
+
+To enable a gcov code coverage reports type:
+
+```powershell
+.\unit-test.ps1 gcov:all
 ```

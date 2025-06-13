@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "ceedlingExplorer",
+      "name": "ceedling",
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/build/ceedling/test/out/${command:ceedlingExplorer.debugTestExecutable}",
@@ -12,7 +12,7 @@
       "environment": [],
       "externalConsole": false,
       "MIMode": "gdb",
-      "miDebuggerPath": "C:/Ruby30-x64/msys64/mingw64/bin/gdb.exe",
+      //"miDebuggerPath": "gdb.exe",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
@@ -28,8 +28,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/workspace/renu/ceedling-waf/test",
-      "program": "c:/workspace/renu/ceedling-waf/test/build/Debug/outDebug",
+      "cwd": "${workspaceFolder}/test",
+      "program": "${workspaceFolder}/test/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

@@ -7,15 +7,22 @@ Changelog
 Features:
 
 * updated a tool chain
-* add a dos batch command ceedling.bat
+* add power shell commands :
+  * unit-test.ps1 - to run ceedling command
+  * setenv.ps1 - to set PATH to ruby and python in this command line
+* activated cmock plugins :
+  * ignore_arg
+  * return_thru_ptr
+  * callback
+* add further unit test cases and how to use them
 * file project.yml moved to the top directory
-* add fixed path to the tool chain
 * add vscode configuration files for a debug support
 
 Documentation:
 
 * updated tools' versions, links and their installation (gcovr 8.3,...)
 * add a new chapter "Verify installation"
+* add a description for subdirectory ./.vscode
 * updated an usage description
 * updated an image with a result for a new version of gcov
 * add a new documentation ./doc/debugging.md

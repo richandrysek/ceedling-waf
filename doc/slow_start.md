@@ -24,6 +24,11 @@ In this repository is used a Python based 'wscript' files. But it should not be 
 The project is structured as described below:
 
 ```shell
++- /vscode
+|     +---------c_cpp_properties.json
+|     +---------launch.json
+|     +---------settings.json
+|
 +- /build
 |     +---------/ceedling
 |     +---------...
@@ -73,6 +78,10 @@ The project is structured as described below:
 +-wscript
 ```
 
+#### .vscode
+
+The Visual Studio Code settings for gdb and ceedling unit testing extensions.
+
 #### build
 
 Build artifacts for a target and ceedling. The ceedling artifcats, including gcov reports,
@@ -89,7 +98,7 @@ a ceedling.
 
 Each component has its own wscript file.
 
-#### conf
+#### project.yml
 
 The whole ceedling configuration can be found in the file ```./project.yml``` .
 
