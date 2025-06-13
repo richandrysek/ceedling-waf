@@ -30,11 +30,12 @@ void test_bad_access(void)
     /* avoid to run a segmenation fault infinetly */
     if(setjmp(buf) == 0) {
         /* we use a wrong pointer to see a bad memory access */
-        bad_function((uint32_t*)0xFFFFFFFFu); 
+        bad_function((uint32_t*)UINTPTR_MAX); 
         //calculate_all(1, 56, 0c67u, 65, true);
     }
 
-    TEST_ASSERT_EQUAL(get_last_address(), 0xFFFFFFFFu);
+    //TEST_ASSERT_EQUAL(get_last_address(), (uint32_t*)0xFFFFFFFFu);
+    TEST_ASSERT_EQUAL_PTR(get_last_address(), (uintptr_t)UINTPTR_MAX);
     TEST_ASSERT_EQUAL(i, 1);
 }
 #else

@@ -75,6 +75,8 @@
   :enforce_strict_ordering: TRUE
   :plugins:
     - :ignore
+    - :ignore_arg
+    - :return_thru_ptr
     - :callback
   :treat_as:
     uint8:    HEX8
