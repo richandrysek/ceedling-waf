@@ -1,4 +1,5 @@
 #include "unity.h"
+#include <string.h>
 
 #include "myextralib.h"
 
@@ -31,7 +32,7 @@ void test_funcExt(void)
     int32_t plusValue = 15;
     MYLIB_plusEx_ReturnThruPtr_value(&plusValue);
 
-     MYLIB_minus_ExpectAndReturn(5, 10, -5);
+    MYLIB_minus_ExpectAndReturn(5, 10, -5);
 
 
     int32_t res = MYEXTRALIB_funcEx(5, 10, &value);
@@ -41,7 +42,10 @@ void test_funcExt(void)
 
 int32_t MYLIB_plusExCallback(const int32_t a, const int32_t b, int32_t * value, int cmock_num_calls)
 {
-    TEST_ASSERT_NOT_NULL(value);
+    char buf[128];
+    sprintf(buf, "call %d", cmock_num_calls);
+
+    TEST_ASSERT_NOT_NULL_MESSAGE(value, buf);
     TEST_ASSERT_EQUAL(0, *value);
     if(cmock_num_calls < 1) {
         *value = a + b;
@@ -67,4 +71,15 @@ void test_funcExt2(void)
     MYLIB_minus_ExpectAndReturn(5, 10, -5);
     res = MYEXTRALIB_funcEx(5, 10, &value);
     TEST_ASSERT_EQUAL(-5, value);
+}
+
+void test_funcExt2WithNullPointer(void)
+{
+    int32_t value = 0;
+    int32_t res;
+
+    MYLIB_plusEx_StubWithCallback(MYLIB_plusExCallback);
+
+    res = MYEXTRALIB_funcEx(5, 10, NULL);
+    TEST_ASSERT_EQUAL(-1, res);
 }
